@@ -32,7 +32,7 @@ const Login = () => {
   return (
     <section>
       <div css={styles.container}>
-        <h4>Welcome</h4>
+        <h4>Welcome Back</h4>
         <form css={styles.formStyle} onSubmit={onSubmitHandler}>
           <div>
             <label htmlFor="email">
@@ -106,7 +106,7 @@ const styles = {
     label {
       color: #4e4f4f;
       font-weight: 500;
-      font-size: 20px;
+      font-size: 18px;
     }
 
     span {
