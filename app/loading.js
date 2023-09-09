@@ -6,7 +6,6 @@ import React from "react";
 import { Spinner } from "reactstrap";
 
 function Loading() {
-  const letters = ["L", "o", "a", "d", "i", "n", "g"];
   return (
     <div
       style={{
@@ -16,12 +15,7 @@ function Loading() {
         marginTop: "5%",
       }}>
       <div css={styles.loader}>
-        {letters &&
-          letters?.map((letter, index) => (
-            <span key={index} css={index % 2 === 0 ? styles.blue : styles.red}>
-              {letter}
-            </span>
-          ))}
+        <span>Loading</span>
         <Spinner color="secondary" type="grow" size="sm" style={{marginLeft:'9px'}}/>
         <Spinner color="secondary" type="grow" size="sm" style={{marginLeft:'9px'}}/>
         <Spinner color="secondary" type="grow" size="sm" style={{marginLeft:'9px'}}/>
@@ -36,11 +30,6 @@ const styles = {
   loader: css`
     font-size: 60px;
     font-weight: 600;
-  `,
-  blue: css`
-    color: #05affe;
-  `,
-  red: css`
-    color: #ff6584;
-  `,
+    color: #000;
+  `
 };

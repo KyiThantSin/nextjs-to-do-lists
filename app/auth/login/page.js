@@ -20,10 +20,10 @@ const Login = () => {
     if (email && password) {
       signInWithEmailAndPassword(Auth, email, password)
         .then((user) => {
-          console.log("login res", user.user.uid)
-          setEmail('');
-          setPassword('');
-          router.push(`/lists/${user.user.uid}`)
+          console.log("login res", user.user.uid);
+          setEmail("");
+          setPassword("");
+          router.push(`/lists/${user.user.uid}`);
         })
         .catch((err) => setError(err.message));
     }
@@ -66,7 +66,11 @@ const Login = () => {
           </div>
           {error && <p css={styles.errorMsg}>{error}</p>}
           <section css={styles.floatEnd}>
-            <Button id="login-btn" name="login-btn" color="primary" type="submit">
+            <Button
+              id="login-btn"
+              name="login-btn"
+              type="submit"
+              css={styles.btn}>
               Log in
             </Button>
           </section>
@@ -84,7 +88,7 @@ const styles = {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top:90px;
+    margin-top: 90px;
   `,
   formStyle: css`
     display: flex;
@@ -104,7 +108,7 @@ const styles = {
     }
 
     label {
-      color: #4e4f4f;
+      color: #000;
       font-weight: 500;
       font-size: 18px;
     }
@@ -128,7 +132,17 @@ const styles = {
     border-radius: 9px;
     border: 0.9px solid #aaacac;
     outline: none;
-    color: #4e4f4f;
+    color: #000;
     padding: 9px;
+  `,
+  btn: css`
+    background: #000;
+    padding: 6px;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+      background: #000;
+    }
   `,
 };

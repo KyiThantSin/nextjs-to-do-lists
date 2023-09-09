@@ -128,7 +128,11 @@ const Register = () => {
           </div>
           {error && <p css={styles.errorMessage}>{error}</p>}
           <section css={styles.floatEnd}>
-            <Button id="register" name="register" color="primary" type="submit">
+            <Button
+              id="register"
+              name="register"
+              type="submit"
+              css={styles.btn}>
               Register
             </Button>
           </section>
@@ -166,7 +170,7 @@ const styles = {
     }
 
     label {
-      color: #4e4f4f;
+      color: #000;
       font-weight: 500;
       font-size: 18px;
     }
@@ -190,7 +194,17 @@ const styles = {
     border-radius: 9px;
     border: 0.9px solid #aaacac;
     outline: none;
-    color: #4e4f4f;
+    color: #000;
     padding: 9px;
+  `,
+  btn: css`
+    background: #000;
+    padding: 6px;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+      background: #000;
+    }
   `,
 };
