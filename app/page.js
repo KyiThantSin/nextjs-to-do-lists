@@ -1,95 +1,77 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+/** @jsxImportSource @emotion/react */
+import Vector from "@/assets/vector";
+import { Button } from "reactstrap";
+import { css } from "@emotion/react";
+import { useRouter } from "next/navigation";
+import { useContext } from "react";
+import { UserContext } from "@/components/AuthProvider";
 
 export default function Home() {
+  const router = useRouter();
+  const user = useContext(UserContext);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
+    <main style={{ padding: "20px" }}>
+      <section css={styles.wrapper}>
         <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
+          <h1>Lists It Easy !</h1>
           <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+            Stay organized and achieve your goals with our user-friendly to-do
+            list website. Your tasks, your way.
           </p>
-        </a>
-      </div>
+          <Button
+            id="login-btn"
+            onClick={() =>
+              `${
+                user
+                  ? router.push(`/lists/${user}`)
+                  : router.push("/auth/login")
+              }`
+            }
+            css={styles.btn}>
+            Start
+          </Button>
+        </div>
+        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <Vector />
+        </div>
+      </section>
     </main>
-  )
+  );
 }
+
+const styles = {
+  wrapper: css`
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 40px;
+    margin-top: 50px;
+
+    p {
+      font-size: 20px;
+      text-wrap:wrap;
+    }
+    h1 {
+      color: #000;
+      font-weight: 600;
+    }
+    @media (max-width: 1000px) {
+      margin: 8px;
+    }
+  `,
+  btn: css`
+    background: #000;
+    padding: 6px;
+    border: none;
+    width: 10%;
+    margin-top: 20px;
+    color: #fff;
+    &:hover {
+      cursor: pointer;
+      background: #000;
+    }
+  `,
+};

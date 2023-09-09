@@ -91,17 +91,17 @@ const styles = {
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;
-    color: #4e4f4f;
+    color: #000;
   `,
   logo: css`
     font-size: 20px;
-    color: #ff6584;
+    color: #000;
     font-weight: 600;
   `,
   logout:css`
     margin-top:15px;
     font-size: 18px;
     font-weight: 500;
-    color: #4e4f4f;
+    color: #000;
   `
 };
