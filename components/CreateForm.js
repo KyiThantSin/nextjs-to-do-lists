@@ -98,7 +98,7 @@ const styles = {
     }
 
     label {
-      color: #4e4f4f;
+      color: #000;
       font-weight: 500;
       font-size: 18px;
       padding-top: 15px;
@@ -113,18 +113,18 @@ const styles = {
     border-right: 0px;
     border-bottom: 0.9px solid #aaacac;
     outline: none;
-    color: #4e4f4f;
+    color: #000;
     padding: 9px;
     background: transparent;
   `,
   btn: css`
-    background: #ff6584;
+    background: #000;
     padding: 6px;
     border: none;
 
     &:hover {
       cursor: pointer;
-      background: #ff6584;
+      background: #000;
     }
   `,
 };

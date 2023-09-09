@@ -69,7 +69,7 @@ const Lists = () => {
         <div css={styles.listsLength}>
           <p>
             Total Tasks:{" "}
-            <Badge color="success">{lists ? lists.length : 0}</Badge>
+            <Badge color="dark">{lists ? lists.length : 0}</Badge>
           </p>
         </div>
         <div css={styles.lists}>
@@ -100,14 +100,14 @@ const styles = {
     margin: 5.5%;
 
     p {
-      font-size: 20px;
-      color: #4e4f4f;
+      font-size: 18px;
+      color: #000;
     }
 
     h4,
     h3 {
       font-weight: 600;
-      color: #4e4f4f;
+      color: #000;
     }
 
     @media (max-width: 1000px) {
@@ -123,6 +123,10 @@ const styles = {
   listsLength: css`
     margin-top: 20px;
     border-bottom: 0.9px solid lightgrey;
+
+    p {
+      font-size: 18px;
+    }
   `,
   lists: css`
     display: flex;
@@ -136,13 +140,13 @@ const styles = {
     margin-top: 5%;
   `,
   formVisibleBtn: css`
-    background: #ff6584;
+    background: #000;
     padding: 6px;
     border: none;
 
     &:hover {
       cursor: pointer;
-      background: #ff6584;
+      background: #000;
     }
   `,
 };
