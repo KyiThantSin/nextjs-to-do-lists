@@ -12,7 +12,7 @@ export default function Home() {
   const user = useContext(UserContext);
 
   return (
-    <main style={{ padding: "20px" }}>
+    <main>
       <section css={styles.wrapper}>
         <div>
           <h1>Lists It Easy !</h1>
@@ -46,18 +46,19 @@ const styles = {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 20px;
+    text-wrap: balance;
     margin: 40px;
-    margin-top: 50px;
 
     p {
-      font-size: 20px;
-      text-wrap:wrap;
+      font-size: 18px;
+      text-wrap: wrap;
     }
+
     h1 {
       color: #000;
       font-weight: 600;
     }
+
     @media (max-width: 1000px) {
       margin: 8px;
     }
@@ -72,6 +73,10 @@ const styles = {
     &:hover {
       cursor: pointer;
       background: #000;
+    }
+
+    @media (max-width: 1000px) {
+      width: 30%;
     }
   `,
 };
