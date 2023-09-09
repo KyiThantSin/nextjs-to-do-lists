@@ -8,6 +8,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 
 import { css } from "@emotion/react";
 import { Button } from "reactstrap";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const router = useRouter();
@@ -17,10 +18,20 @@ const Login = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    if (email && password) {
+    if (email && password) { 
       signInWithEmailAndPassword(Auth, email, password)
         .then((user) => {
           //console.log("login res", user.user.uid);
+          toast("Login Success!", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false, 
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
           setEmail("");
           setPassword("");
           router.push(`/lists/${user.user.uid}`);

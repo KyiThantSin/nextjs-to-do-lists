@@ -9,6 +9,7 @@ import { FiEdit2 } from "react-icons/fi";
 import { AiOutlineDelete } from "react-icons/ai";
 import { Button, Input } from "reactstrap";
 import { UserContext } from "./AuthProvider";
+import { toast } from "react-toastify";
 
 const Card = ({ data }) => {
   const user = useContext(UserContext);
@@ -20,6 +21,16 @@ const Card = ({ data }) => {
   //console.log(data);
   const handleDelete = async (id) => {
     await deleteDoc(doc(db, `${user}`, id));
+    toast("Deleted!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   //task status
@@ -44,6 +55,16 @@ const Card = ({ data }) => {
         details: editedDetails,
         date: moment().format("MMM DD YYYY, h:mm a"),
       });
+      toast("Updated!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
     setIsEditing(false);
   };
@@ -58,7 +79,7 @@ const Card = ({ data }) => {
               id="status"
               name="status"
               checked={isChecked}
-              style={{ border: '2px solid #000' }}
+              style={{ border: "2px solid #000" }}
               onChange={() => handleStatusChange(data.id)}
             />
           </div>

@@ -7,6 +7,7 @@ import { Button } from "reactstrap";
 import { db } from "@/app/firebase";
 import moment from "moment";
 import { UserContext } from "./AuthProvider";
+import { toast } from "react-toastify";
 
 const CreateForm = () => {
   const user = useContext(UserContext);
@@ -23,61 +24,75 @@ const CreateForm = () => {
         status: false,
         date: moment().format("MMM DD YYYY, h:mm a"),
       });
+      toast("Created!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       setTitle("");
       setDetails("");
     }
   };
   return (
-    <form css={styles.formStyle} onSubmit={onSubmitHandler}>
-      <section
-        style={{
-          display: "flex",
-          justifyContent: "flex-end",
-          margin: "9px",
-          fontSize: "14px",
-        }}>
-        <b>{moment().format("MMM DD YYYY, h:mm a")}</b>
-      </section>
-      <div>
-        <label htmlFor="title">
-          Title <span>*</span>
-        </label>
-        <input
-          id="title"
-          name="title"
-          aria-label="title"
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          css={styles.inputStyle}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="details">Details</label>
-        <textarea
-          id="details"
-          name="details"
-          aria-label="details"
-          type="text"
-          value={details}
-          onChange={(e) => setDetails(e.target.value)}
-          css={styles.inputStyle}
-          rows={5}
-        />
-      </div>
-      <section
-        style={{ display: "flex", justifyContent: "flex-end", margin: "9px" }}>
-        <Button
-          id="create"
-          name="create"
-          aria-label="create"
-          type="submit"
-          css={styles.btn}>
-          Create
-        </Button>
-      </section>
-    </form>
+      <form css={styles.formStyle} onSubmit={onSubmitHandler}>
+        <section
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            margin: "9px",
+            fontSize: "14px",
+          }}>
+          <b>{moment().format("MMM DD YYYY, h:mm a")}</b>
+        </section>
+        <div>
+          <label htmlFor="title">
+            Title <span>*</span>
+          </label>
+          <input
+            id="title"
+            name="title"
+            aria-label="title"
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            css={styles.inputStyle}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="details">Details</label>
+          <textarea
+            id="details"
+            name="details"
+            aria-label="details"
+            type="text"
+            value={details}
+            onChange={(e) => setDetails(e.target.value)}
+            css={styles.inputStyle}
+            rows={5}
+          />
+        </div>
+        <section
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            margin: "9px",
+          }}>
+          <Button
+            id="create"
+            name="create"
+            aria-label="create"
+            type="submit"
+            css={styles.btn}>
+            Create
+          </Button>
+        </section>
+      </form>
   );
 };
 

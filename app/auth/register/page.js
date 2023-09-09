@@ -8,6 +8,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import { css } from "@emotion/react";
 import { Button } from "reactstrap";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const router = useRouter();
@@ -51,6 +52,16 @@ const Register = () => {
     if (email && password && confirmPassword && password === confirmPassword) {
       createUserWithEmailAndPassword(Auth, email, password, name)
         .then((user) => {
+          toast("Account Created!", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false, 
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
           setEmail("");
           setName("");
           setPassword("");

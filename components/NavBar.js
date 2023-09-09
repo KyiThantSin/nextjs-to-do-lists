@@ -6,6 +6,7 @@ import { signOut } from "firebase/auth";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useContext } from "react";
+import { toast } from "react-toastify";
 import { UserContext } from "./AuthProvider";
 
 const NavBar = () => {
@@ -17,6 +18,16 @@ const NavBar = () => {
      await signOut(Auth).then(() => {
         router.push('/')
       })
+      toast("Logout Success!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false, 
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
   }
 
   return (
