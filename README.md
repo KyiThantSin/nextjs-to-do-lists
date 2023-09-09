@@ -1,31 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Next.js To-Do List App with Firebase Authentication and CRUD Operations
 
-## Getting Started
+This is a simple To-Do List application built with Next.js, Firebase for authentication, and Firestore for data storage. Users can create, read, update, and delete their private to-do lists after authenticating.
 
-First, run the development server:
+## Features
+- User Authentication: Users can sign up and log in to their accounts. Only authenticated users can create and manage their to-do lists.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- CRUD Operations: Users can perform Create, Read, Update, and Delete operations on their to-do lists.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Private Lists: Each user has their own private to-do lists. Lists are not visible to other users.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Real-time Updates: Any changes made to the to-do lists are instantly reflected in the UI thanks to Firebase's real-time database capabilities.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Technologies Used
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [Next.js](https://nextjs.org/docs)
+- [Firebase](https://firebase.google.com/)
 
 ## Deploy on Vercel
 
