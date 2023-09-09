@@ -55,7 +55,7 @@ const Register = () => {
           setName("");
           setPassword("");
           setConfirmPw("");
-          console.log("Success. The user is created in Firebase");
+          //console.log("Success. The user is created in Firebase");
           router.push(`/lists/${user.user.uid}`);
         })
         .catch((err) => setError(err.message));

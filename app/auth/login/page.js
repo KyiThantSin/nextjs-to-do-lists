@@ -20,7 +20,7 @@ const Login = () => {
     if (email && password) {
       signInWithEmailAndPassword(Auth, email, password)
         .then((user) => {
-          console.log("login res", user.user.uid);
+          //console.log("login res", user.user.uid);
           setEmail("");
           setPassword("");
           router.push(`/lists/${user.user.uid}`);

@@ -48,7 +48,7 @@ const Lists = () => {
     }
   }, [setListsCallback]);
 
-  console.log(lists);
+  //console.log(lists);
 
   return (
     user && (
@@ -122,8 +122,6 @@ const styles = {
   `,
   listsLength: css`
     margin-top: 20px;
-    border-bottom: 0.9px solid lightgrey;
-
     p {
       font-size: 18px;
     }

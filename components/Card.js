@@ -12,7 +12,7 @@ import { UserContext } from "./AuthProvider";
 
 const Card = ({ data }) => {
   const user = useContext(UserContext);
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(data.status);
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(data.title);
   const [editedDetails, setEditedDetails] = useState(data?.details);
@@ -58,6 +58,7 @@ const Card = ({ data }) => {
               id="status"
               name="status"
               checked={isChecked}
+              style={{ border: '2px solid #000' }}
               onChange={() => handleStatusChange(data.id)}
             />
           </div>
@@ -248,7 +249,7 @@ const styles = {
   `,
   taskInfoStyle: css`
     display: flex;
-    padding: 9px;
+    padding: 5px;
     flex-wrap: wrap;
     flex-direction: column;
 
@@ -256,7 +257,6 @@ const styles = {
       margin-top: 9px;
       font-size: 16px;
     }
-
     span {
       margin-top: 9px;
     }
