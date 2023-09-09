@@ -78,9 +78,9 @@ const Lists = () => {
             lists.map((list) => {
               return <Card key={list.id} data={list} />;
             })}
-          {!lists && (
+          {lists && lists?.length === 0 && (
             <b css={styles.noDataFound}>
-              You have no to-do-lists at the moment.
+              You have no to-do-lists at the moment. Create new?
             </b>
           )}
         </div>
